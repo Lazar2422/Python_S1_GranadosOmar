@@ -1,3 +1,4 @@
+from b import *
 nombres = [
     ["Adrián"],
     ["Alejandra"],
@@ -32,7 +33,6 @@ nombres = [
     ["Thomas", "Sebastián"],
     ["Vladimir"]
 ]
-
 apellidos = [
     ["Quintero", "Pinzón"],
     ["Pinzón", "Alvarez"],
@@ -82,10 +82,7 @@ while t==True:
             n=n-1
             nombrenuevo=input("Ingrese el nuevo nombre para el estudiante: ")
             apellidonuevo=input("Ingrese el apellido nuevo para el estudiante: ")
-            listaRandom=[nombrenuevo]
-            listaRandom2=[apellidonuevo]
-            nombres[n]=listaRandom
-            apellidos[n]=listaRandom2
+            lista(nombres,n,nombrenuevo,apellidos,apellidonuevo)
             y=int(input("Desea seguir editando? (1=si || 2=no) "))
             if y==2:
                 f=False
@@ -94,10 +91,7 @@ while t==True:
         while f==True:
             nombrenuevo=input("Ingrese el nombre del estudiante nuevo: ")
             apellidonuevo=input("Ingrese el apellido del estudiante nuevo: ")
-            listaRandom=[nombrenuevo]
-            listaRandom2=[apellidonuevo]
-            nombres.append(listaRandom)
-            apellidos.append(listaRandom2)
+            añadir(nombres,nombrenuevo,apellidos,apellidonuevo)
             y=int(input("Desea seguir añadiendo estudiantes? (1=si || 2=no) "))
             if y ==2:
                 f=False
@@ -106,15 +100,11 @@ while t==True:
         while f==True:
             n=int(input("Ingrese el numero del estudiante a eliminar: "))
             n=n-1
-            del nombres[n]
-            del apellidos[n]
+            delete(nombres,n,apellidos)
             y=int(input("Desea seguir eliminando estudiantes? (1=si || 2=no) "))
             if y == 2:
                 f=False
-    
     elif b==1:
-        print("Lista de estudiantes: ")
-        for i in range (len(nombres)):
-            print("Estudiante ", i+1, " ", nombres[i], apellidos[i])
+        nom(nombres,apellidos)
     elif b==5:
         t=False
