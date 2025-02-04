@@ -112,7 +112,7 @@ while t==True:
             if y == 2:
                 f=False
     
-    elif b==4:
+    elif b==1:
         print("Lista de estudiantes: ")
         for i in range (len(nombres)):
             print("Estudiante ", i+1, " ", nombres[i], apellidos[i])
