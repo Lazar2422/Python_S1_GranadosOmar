@@ -1,9 +1,9 @@
 import json
 def abrirJSON():
-    dicFinal={}
+    hola123={}
     with open("./dbb.json",'r') as openFile:
-        dicFinal=json.load(openFile)
-    return dicFinal
+        hola123=json.load(openFile)
+    return hola123
 
 def guardarJSON(dic):
     with open("./dbb.json",'w') as outFile:
@@ -21,13 +21,13 @@ while f==True:
     print("Para salir presione 6")
     x=int(input(": "))
     if x==3:
-        for i in range(len(d)):
-            y=str(i)
-            met1=d[y][0]
-            hab1=d[y][0]
-            gar1=d[y][0]
-            año1=d[y][0]
-            zon1=d[y][0]
+        for i in range(len(d["0"])):
+            y=str(0)
+            met1=d[y][i]
+            hab1=d[y][i]
+            gar1=d[y][i]
+            año1=d[y][i]
+            zon1=d[y][i]
             met=met1["metros"]
             hab=hab1["habitaciones"]
             gar=gar1["garaje"]
@@ -37,12 +37,13 @@ while f==True:
     elif x==1:
         pre=float(input("Ingrese el presupuesto: "))
         for i in range(len(d)):
-            y=str(i)
-            met1=d[y][0]
-            hab1=d[y][0]
-            gar1=d[y][0]
-            año1=d[y][0]
-            zon1=d[y][0]
+            y=str(0)
+            h=d[y]
+            met1=h[i]
+            hab1=h[i]
+            gar1=h[i]
+            año1=h[i]
+            zon1=h[i]
             met=met1["metros"]
             hab=hab1["habitaciones"]
             gar=gar1["garaje"]
@@ -69,8 +70,11 @@ while f==True:
             gar1="True"
         elif gar==2:
             gar1="False"
-        b=len(d)
-        d[b]=[{"a\u00c3o":año,"metros":met,"habitaciones":hab,"garaje":gar1,"zona":zon}]
+        b=str(0)
+        i=len(d[b])
+        h=d[b]
+        h[i]=({"a\u00c3o":año,"metros":met,"habitaciones":hab,"garaje":gar1,"zona":zon})
+        d[b].extend(h[i])
         guardarJSON(d)
     elif x==4:
         x=int(input("Ingrese el numero del inmobiliario a actualizar: "))
@@ -90,8 +94,8 @@ while f==True:
     elif x==5:
         x=int(input("Ingrese el numero del inmobiliario a eliminar: "))
         b=x-1
-        y=str(b)
-        del d[y]
+        c=d["0"]
+        del c[b]
         guardarJSON(d)
     elif x==6:
         f=False
