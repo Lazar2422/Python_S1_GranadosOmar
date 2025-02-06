@@ -46,7 +46,7 @@ while f==True:
             met=met1["metros"]
             hab=hab1["habitaciones"]
             gar=gar1["garaje"]
-            año=año1["año"]
+            año=año1["aÃo"]
             zon=zon1["zona"]
             if gar=="True":
                 gar2=1
@@ -58,6 +58,7 @@ while f==True:
                 p=(met*1000+hab*5000+gar2*15000)*(1-((2025-año)/100))*1.5
             if p<=pre:
                 print("El inmueble ", i+1, " es accesible a su presupuesto")
+                print(p)
     elif x==2:
         año=int(input("Ingrese el año desde que se creo el inmueble: "))
         met=float(input("Ingrese los metros del nuevo inmueble: "))
@@ -69,7 +70,7 @@ while f==True:
         elif gar==2:
             gar1="False"
         b=len(d)
-        d[b]=[{"año":año,"metros":met,"habitaciones":hab,"garaje":gar1,"zona":zon}]
+        d[b]=[{"a\u00c3o":año,"metros":met,"habitaciones":hab,"garaje":gar1,"zona":zon}]
         guardarJSON(d)
     elif x==4:
         x=int(input("Ingrese el numero del inmobiliario a actualizar: "))
@@ -79,12 +80,12 @@ while f==True:
         gar=int(input("Escriba 1 si cuenta con garaje || escriba 2 si no cuenta con garaje: "))
         zon=input("Ingrese la zona del inmueble (A o B): ")
         if gar==1:
-            gar1=True
+            gar1="True"
         elif gar==2:
-            gar1=False
+            gar1="False"
         b=x-1
         y=str(b)
-        d[y]["a\u00f1o"]=año
+        d[y]["a\u00c3o"]=año
         d[y]["metros"]=met
         d[y]["habitaciones"]=hab
         d[y]["garaje"]=gar1
