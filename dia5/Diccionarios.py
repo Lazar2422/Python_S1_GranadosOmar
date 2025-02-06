@@ -5,3 +5,6 @@ productos={
 }
 for producto in productos:
     print(productos[producto])
+productos["comida3"]=500
+
+print(productos)
