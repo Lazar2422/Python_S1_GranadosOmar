@@ -58,7 +58,7 @@ while f==True:
                 p=(met*1000+hab*5000+gar2*15000)*(1-((2025-año)/100))*1.5
             if p<=pre:
                 print("El inmueble ", i+1, " es accesible a su presupuesto")
-                print(p)
+                print("El valor del imnueble ", i+1, " es de: $",p)
     elif x==2:
         año=int(input("Ingrese el año desde que se creo el inmueble: "))
         met=float(input("Ingrese los metros del nuevo inmueble: "))
@@ -85,11 +85,7 @@ while f==True:
             gar1="False"
         b=x-1
         y=str(b)
-        d[y]["a\u00c3o"]=año
-        d[y]["metros"]=met
-        d[y]["habitaciones"]=hab
-        d[y]["garaje"]=gar1
-        d[y]["zona"]=zon
+        d[y]=[{"a\u00c3o":año,"metros":met,"habitaciones":hab,"garaje":gar1,"zona":zon}]
         guardarJSON(d)
     elif x==5:
         x=int(input("Ingrese el numero del inmobiliario a eliminar: "))
